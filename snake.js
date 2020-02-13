@@ -34,10 +34,7 @@ class Snake {
     }
     checkSelfCollision(nextPos) {
         const snakePositions = [];
-        this.body.forEach(b => {
-            snakePositions.push(`${b.x}-${b.y}`);
-
-        })
+        this.body.forEach(b => snakePositions.push(`${b.x}-${b.y}`) )
 
         const nextIndex = `${nextPos.x}-${nextPos.y}`
 

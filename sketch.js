@@ -10,9 +10,8 @@ const H = H_GRID * REZ;
 const TEXTSIZE = 16;
 const sprites = {};
 const defaultPositions = {}
+
 let  MESSAGES;
-
-
 let snake;
 let food;
 let started = false;
@@ -31,14 +30,10 @@ function preload() {
   }
 }
 
-
 function setup() {
   textAlign(CENTER);
   createCanvas(W,H);
   frameRate(5);
-  
-
-  console.log('DEFAULT ', defaultPositions)
 
   MESSAGES = {
     start: {
@@ -52,7 +47,6 @@ function setup() {
       scale: 1,
     }
   }
-
 
   initGame();
 }
@@ -81,8 +75,6 @@ function initGame() {
   started = false;
 }
 
-
-
 function changeVector(direction) {
   started = true;
   const vectorMap = {
@@ -109,7 +101,6 @@ function showStartScreen() {
   
   fill(255)
   textSize(TEXTSIZE * 1.5);
-  // text('THE BIXUIT SNAKEMACHINE', W/2, (H/2) - TEXTSIZE*2)
   textSize(TEXTSIZE);
   text('Press arrow key to start', W/2, (H) - (TEXTSIZE*2))
   textSize(TEXTSIZE / 2)
@@ -122,28 +113,23 @@ function showScore(score) {
   text(`score: ${score}`, 35, H - TEXTSIZE)
 }
 
-
 function draw() {
   background(174,15,10);
 
   if (!started) return showStartScreen()
-  // else {
-    if (snake.alive) {
-      snake.update();
-      snake.eat(food) 
-      snake.show(); 
-      food.show();
-      
-      if (started) showScore(snake.score())    
-    } else {
-      
-      fill(255);
-      textSize(TEXTSIZE * 3)
-      // text('YOU LOSE!\nDUMBASS',(W/3) - (TEXTSIZE * 3), (H/2) - TEXTSIZE*1.5)
-      text(MESSAGES.end.text,W/2, (H/2) - TEXTSIZE*1.5)
-      textSize(TEXTSIZE)
-      text('press spacebar to retry', (W/2), (H - TEXTSIZE))
-    }
+  if (snake.alive) {
+    snake.update();
+    snake.eat(food) 
+    snake.show(); 
+    food.show();
+    
+    if (started) showScore(snake.score())    
+  } else {
+    
+    fill(255);
+    textSize(TEXTSIZE * 3)
+    text(MESSAGES.end.text,W/2, (H/2) - TEXTSIZE*1.5)
+    textSize(TEXTSIZE)
+    text('press spacebar to retry', (W/2), (H - TEXTSIZE))
   }
-  
-// }
+}
