@@ -112,6 +112,8 @@ function showStartScreen() {
   // text('THE BIXUIT SNAKEMACHINE', W/2, (H/2) - TEXTSIZE*2)
   textSize(TEXTSIZE);
   text('Press arrow key to start', W/2, (H) - (TEXTSIZE*2))
+  textSize(TEXTSIZE / 2)
+  text('if you\'re on mobile, well it sucks to be you', W/2, H- (TEXTSIZE))
 }
 
 function showScore(score) {
