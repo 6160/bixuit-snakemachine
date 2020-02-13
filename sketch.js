@@ -48,6 +48,22 @@ function setup() {
     }
   }
 
+  button_left = createButton('←');
+  button_left.position(80, H+30);
+  button_left.mousePressed(() => changeVector(LEFT_ARROW));
+
+  button_right = createButton('→');
+  button_right.position(130, H+30);
+  button_right.mousePressed(() => changeVector(RIGHT_ARROW));
+
+  button_up = createButton('↑');
+  button_up.position(180, H+30);
+  button_up.mousePressed(() => changeVector(UP_ARROW));
+
+  button_down = createButton('↓');
+  button_down.position(230, H+30);
+  button_down.mousePressed(() => changeVector(DOWN_ARROW));
+  
   initGame();
 }
 
@@ -86,6 +102,8 @@ function changeVector(direction) {
 
   const vector = vectorMap[direction];
 
+  console.log(vector)
+
   if (vector) { snake.changeDirection(vector); }
 }
 
@@ -118,6 +136,9 @@ function draw() {
 
   if (!started) return showStartScreen()
   if (snake.alive) {
+
+
+
     snake.update();
     snake.eat(food) 
     snake.show(); 
