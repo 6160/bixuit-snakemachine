@@ -64,6 +64,11 @@ function setup() {
   button_down.position(230, H+30);
   button_down.mousePressed(() => changeVector(DOWN_ARROW));
   
+  button_down = createButton('reset');
+  button_down.position(W/2 - 50, H+70);
+  button_down.mousePressed(() => initGame());
+  
+
   initGame();
 }
 
